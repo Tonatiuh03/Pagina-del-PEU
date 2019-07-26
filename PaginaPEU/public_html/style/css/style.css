@@ -549,14 +549,14 @@ pre {
 #menu {
 	float: left;
 	text-align: left;
-	font-family: 'Amaranth', sans-serif;
-	font-size: 20px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 18px;
 	margin-top: 40px;
 	margin-bottom: 50px;
 	position: relative;
 	z-index: 100;
 	padding: 0 0 0 24px;
-        text-shadow: 1px 0 0 #000, -2px 0 0 #000, 0 1px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+        text-shadow: 1px 0 0 #C0C0C0, -2px 0 0 #C0C0C0, 0 1px 0 #C0C0C0, 0 -2px 0 #C0C0C0, 1px 1px #C0C0C0, -1px -1px 0 #C0C0C0, 1px -1px 0 #C0C0C0, -1px 1px 0 #C0C0C0;
 	
 }
 
