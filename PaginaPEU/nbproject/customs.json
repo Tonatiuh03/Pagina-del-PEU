@@ -1,5 +1,7 @@
 {
-    "elements": {},
+    "elements": {
+        "center": {}
+    },
     "attributes": {
         "alt": {
             "context": "a"
