@@ -1327,7 +1327,7 @@ h3.title a:hover {
 }
 .zoom, .play, .details {
 	position: absolute;
-	background: transparent url(../images/icon-enlarge.png) no-repeat center center;
+	
 }
 .play {
 	background-image: url(../images/icon-play.png);
