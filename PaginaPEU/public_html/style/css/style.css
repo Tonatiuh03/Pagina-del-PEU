@@ -542,6 +542,7 @@ pre {
 	color: #ab4d63;
 }
 
+
 /*-----------------------------------------------------------------------------------*/
 /*	MENU
 /*-----------------------------------------------------------------------------------*/
@@ -556,8 +557,7 @@ pre {
 	position: relative;
 	z-index: 100;
 	padding: 0 0 0 24px;
-        text-shadow: 1px 0 0 #C19B25, -2px 0 0 #C19B25, 0 1px 0 #C19B25, 0 -2px 0 #C19B25, 1px 1px #C19B25, -1px -1px 0 #C19B25, 1px -1px 0 #C19B25, -1px 1px 0 #C19B25;
-	
+        
 }
 
 .menu-v ul{
@@ -582,7 +582,7 @@ pre {
 	padding: 12px 0 10px 20px;
 	padding-right: 17px;
 	background: transparent; 
-	color: white;
+	color: #183F6E;
 	text-decoration: none;
 	border: none;
 }
@@ -590,7 +590,7 @@ pre {
 .menu-v ul li a.active, .menu-v ul li a.selected, .menu-v ul li a:hover{
 	text-decoration: none;
 	background: transparent url(../images/menu-hover.png) repeat-y left top;
-	color: white;
+	color: #183F6E;
 }
 
 .menu-v ul li ul{
