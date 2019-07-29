@@ -897,6 +897,80 @@ html[xmlns] .slides {
 #next:hover {
 	background-position: bottom right;
 }
+/*-----------------------------------------------------------------------------------*/
+/*	CAROUSEL2
+/*-----------------------------------------------------------------------------------*/
+.carousel {
+	padding-top: 5px;
+	margin-bottom: 20px;
+}
+.carousel ul li {
+	background: none;
+	width: 160px;
+	margin-right: 20px;
+	padding: 0;
+}
+.jcarousel-direction-rtl {
+	direction: rtl;
+}
+.carousel .jcarousel-container {
+	display: block;
+	overflow: hidden;
+}
+.carousel .jcarousel-item {
+	width: 160px;
+	height: 120px;
+	
+}
+.carousel .jcarousel-item img {
+	width: 160px;
+}
+.carousel .jcarousel-container {
+	display: block;
+	overflow: hidden;
+	height: 120px;
+}
+.carousel .jcarousel-clip-horizontal {
+	width:  700px;
+	height: 120px;
+	overflow: hidden;
+	display: block;
+}
+.carousel .jcarousel-item {
+	width: 160px;
+	height: 120px;
+}
+#carousel-scroll {
+	float: right;
+	margin-top: -42px;
+	width: 60px;
+}
+
+#prev {
+	float: left;
+	background: #fff url(../images/controls.png) no-repeat left top;
+	display: block;
+  	cursor: pointer;
+  	width:23px;
+  	height:23px;
+  	border: 1px solid #dbdbdb;	
+}
+#next {
+	float: right;
+	margin-left: 5px;
+	background: #fff url(../images/controls.png) no-repeat right top;
+	display: block;
+  	cursor: pointer;
+  	width:23px;
+  	height:23px;
+	border: 1px solid #dbdbdb;
+}
+#prev:hover {
+	background-position: bottom left;
+}
+#next:hover {
+	background-position: bottom right;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /*	BLOG
