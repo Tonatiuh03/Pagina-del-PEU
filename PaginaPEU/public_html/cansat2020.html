@@ -4,13 +4,19 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
-	<meta charset="utf-8">
+        
+      	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Concurso CanSat UNAM 2019-2020</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
+        
+
+        <link rel="stylesheet" href="css/simplyCountdown.theme.losange.css"/>
+        <link rel="stylesheet" href="css/simplyCountdown.theme.default.css"/>
+        
 
   <!-- 
 	//////////////////////////////////////////////////////
@@ -167,10 +173,10 @@
                                                             <p>1.3. Un asesor académico podrá tener bajo su responsabilidad un máximo de dos equipos.</p>
                                                             <p>1.4. Los estudiantes deberán estar inscritos en cualquier institución de enseñanza de nivel superior con reconocimiento oficial por parte de las autoridades de su país, el cual debe ser iberoamericano.</p>
                                                             <p>1.5. Cada estudiante sólo puede pertenecer a un equipo.</p>
-                                                            <p>1.6. Para mayor información sobre inscripciones y lineamientos de la competencia véase la <a href="#" target="_blank">Guía de Misión.</a></p>
+                                                            <p>1.6. Para mayor información sobre inscripciones y lineamientos de la competencia véase la <a href="files/CANSAT/19-20/Convocatoria-CanSat-GM-Iberoamericano-2019-2020-V1.pdf" target="_blank">Guía de Misión.</a></p>
                                                             <p>1.7. El registro de los equipos para participar en este concurso estará abierto a partir del día lunes 7 de octubre de 2019 y hasta las 23:59:59 h (tiempo del centro de México) del día viernes 13 de diciembre de 2019.</p>
                                                             <p>1.8. El número máximo de equipos inscritos es limitado.</p>
-                                                            <p>No olvides leer la <a href="#" target="_blank">Guía de Misión Completa.</a></p> 
+                                                            <p>No olvides leer la <a href="files/CANSAT/19-20/Convocatoria-CanSat-GM-Iberoamericano-2019-2020-V1.pdf" target="_blank">Guía de Misión Completa.</a></p> 
 							</blockquote>
 						</div>
 					</div>
@@ -327,8 +333,21 @@
 				</div>
 			</div>
 		</div>
+            
+		<div id="fh5co-work-section">
+			<div class="container">
+				<div class="row animate-box">
+                                    <div class="examples">
+                                        <center><h3>El registro concluye en:</h3></center>
+                                        <center><div class="simply-countdown-losange" id="simply-countdown-losange"></div></center>
+                                    </div>
+				</div>
+				
+			</div>
+		</div>
 
 		
+            
 		<footer>
 			<div id="footer">
 				<div class="container">
@@ -337,8 +356,8 @@
 						<div class="col-md-2 col-md-push-1">
 							<h3 class="section-title">Dudas y Aclaraciones:</h3>
 							<ul>
-								<li><a href="#">Guía de Misión</a></li>
-								<li><a href="contacto.html">Contacto PEU</a></li>
+                                                            <li><a href="files/CANSAT/19-20/Convocatoria-CanSat-GM-Iberoamericano-2019-2020-V1.pdf" target="blank">Guía de Misión</a></li>
+								<li><a href="contacto.html" target="blank">Contacto PEU</a></li>
                                                                 <li><a href="mailto:peu@astro.unam.mx?Subject=PEU%20UNAM%20CanSat%20[%20Su%20Asunto%20]">peu@astro.unam.mx</a></li>
 								
 							</ul>
@@ -378,6 +397,30 @@
 
 	<!-- Main JS (Do not remove) -->
 	<script src="style/js2/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+        <script src="dist/simplyCountdown.min.js"></script>
+        <script>
+            /**
+             * WARNING: I set this coundtown to be running until the end of times.
+             * So when you'll init the plugin, follow how it's done in plugin documentation.
+             * e.g : instead of "month: d.getMonth() + 1" put "month: 10" for October.
+             */
+            var d = new Date(),
+                countUpDate = new Date();
+            d.setDate(d.getDate() + 66);
+
+
+
+            //jQuery example
+            $('#simply-countdown-losange').simplyCountdown({
+                year: d.getFullYear(),
+                month: d.getMonth() + 1,
+                day: d.getDate(),
+                enableUtc: false
+            });
+
+    
+        </script>
 
 	</body>
 </html>
