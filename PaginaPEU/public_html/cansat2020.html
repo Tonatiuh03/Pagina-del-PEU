@@ -4,13 +4,19 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
-	<meta charset="utf-8">
+        
+      	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Concurso CanSat UNAM 2019-2020</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
+        
+
+        <link rel="stylesheet" href="css/simplyCountdown.theme.losange.css"/>
+        <link rel="stylesheet" href="css/simplyCountdown.theme.default.css"/>
+        
 
   <!-- 
 	//////////////////////////////////////////////////////
@@ -329,14 +335,14 @@
 				</div>
 			</div>
 		</div>
-
+            
 		<div id="fh5co-work-section">
 			<div class="container">
 				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Projects</h2>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-					</div>
+                                    <div class="examples">
+                                        <h3>El timepo del registro se acaba</h3>
+                                        <div class="simply-countdown-losange" id="simply-countdown-losange"></div>
+                                    </div>
 				</div>
 				<div class="row">
 					<div class="col-md-4 text-center animate-box">
@@ -374,6 +380,8 @@
 		<div class="fh5co-counters" style="background-image: url(style/images2/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
 			<div class="fh5co-narrow-content animate-box">
 				<div class="row" >
+                                       
+							
 					<div class="col-md-4 text-center">
 						<span class="fh5co-counter js-counter" data-from="0" data-to="7520" data-speed="5000" data-refresh-interval="50"></span>
 						<span class="fh5co-counter-label">Project</span>
@@ -467,6 +475,30 @@
 
 	<!-- Main JS (Do not remove) -->
 	<script src="style/js2/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+        <script src="dist/simplyCountdown.min.js"></script>
+        <script>
+            /**
+             * WARNING: I set this coundtown to be running until the end of times.
+             * So when you'll init the plugin, follow how it's done in plugin documentation.
+             * e.g : instead of "month: d.getMonth() + 1" put "month: 10" for October.
+             */
+            var d = new Date(),
+                countUpDate = new Date();
+            d.setDate(d.getDate() + 66);
+
+
+
+            //jQuery example
+            $('#simply-countdown-losange').simplyCountdown({
+                year: d.getFullYear(),
+                month: d.getMonth() + 1,
+                day: d.getDate(),
+                enableUtc: false
+            });
+
+    
+        </script>
 
 	</body>
 </html>
