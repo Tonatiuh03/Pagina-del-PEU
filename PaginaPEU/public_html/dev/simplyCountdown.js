@@ -111,7 +111,7 @@
             minutes: 0,
             seconds: 0,
             words: {
-                days: 'día',
+                days: 'dia',
                 hours: 'hora',
                 minutes: 'minuto',
                 seconds: 'segundo',
