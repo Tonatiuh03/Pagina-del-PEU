@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
   float: right;
-  width: 23%;
+  width: 25%;
   padding: 5px;
 }
 
