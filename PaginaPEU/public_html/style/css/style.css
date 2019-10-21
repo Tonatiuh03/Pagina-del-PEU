@@ -422,7 +422,7 @@ pre {
 }
 
 #sidebar {
-	width: 258px;
+	width: 245px;
 	background: #CEC8C4 url(../images/noize.png) repeat 100% 0;
 	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
 	-moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
@@ -552,9 +552,9 @@ pre {
 	float: left;
 	text-align: left;
 	font-family: "Trebuchet MS", sans-serif;
-	font-size: 18px;
-	margin-top: 40px;
-	margin-bottom: 50px;
+	font-size: 15px;
+	margin-top: 50px;
+	margin-bottom: 40px;
 	position: relative;
 	z-index: 100;
 	padding: 0 0 0 24px;
