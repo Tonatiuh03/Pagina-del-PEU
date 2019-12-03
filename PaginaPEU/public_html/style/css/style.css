@@ -688,7 +688,18 @@ pre {
 	margin-right:0 !important;
 	clear:right;
 }
-
+.contenedor3{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.texto-encima{
+    font-family: Iceland;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    
+}
 /*-----------------------------------------------------------------------------------*/
 /*	SLIDER
 /*-----------------------------------------------------------------------------------*/
