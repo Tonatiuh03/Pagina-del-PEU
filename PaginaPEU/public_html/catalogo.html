@@ -31,6 +31,10 @@
 <script src="style/js/jquery.flexslider-min.js"></script>
 <script src="style/js/jquery.masonry.min.js"></script>
 <script src="style/js/jquery.slickforms.js"></script>
+
+ <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script src="style\js\bootstrap.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -120,14 +124,76 @@
     
     <!-- <img src="style/images/construccion.gif" height="400" width="700">-->
     <h2>Buscar proyecto</h2>
-    <input>
     
-    </div>
-</div>
+     <form class="wm-search-section">
+        <input type="text" value="Buscar" onblur="if(this.value == '') { this.value ='Buscar'; }" onfocus="if(this.value =='Buscar') { this.value = ''; }">
+       
+            <i class="wmicon-search wm-color-two"></i>
+     </form>
+    
+    
+    <br>
+    <br>
+    <span>Se muestra el catalogo actualizado de proyectos.</span> 
+        <div align="center">
+            <button type="button" name="load_data" id="load_data">Mostrar Todo</button>
+            <div id="usuarios_table">
+            </div> 
+        </div>
+        <br>
+        <br>
+        <br>
+        <div align="center"> 
+            <button type="button" name="load_data" id="load_data">Editar proyecto</button>
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <div align="center"> 
+            <button type="button" name="load_data" id="load_data">Agregar proyecto</button>
+        </div>
+
 <div class="clear"></div>
+
 <script src="style/js/scripts.js"></script>
 <!--[if !IE]> -->
 <script src="style/js/jquery.corner.js"></script>
 <!-- <![endif]-->
-</body>
+
+<script>
+$(document).ready(function(){
+ $('#load_data').click(function(){
+  $.ajax({
+   url:"Proyectos-PEU.csv",
+   dataType:"text",
+   success:function(data)
+   {
+    var usuarios_data = data.split(/\r?\n|\r/);
+    var table_data = '<table class="table table-bordered table-striped">';
+    for(var count = 0; count<usuarios_data.length; count++)
+    {
+     var cell_data = usuarios_data[count].split(",");
+     table_data += '<tr>';
+     for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+     {
+      if(count === 0)
+      {
+       table_data += '<th>'+cell_data[cell_count]+'</th>';
+      }
+      else
+      {
+       table_data += '<td>'+cell_data[cell_count]+'</td>';
+      }
+     }
+     table_data += '</tr>';
+    }
+    table_data += '</table>';
+    $('#usuarios_table').html(table_data);
+   }
+  });
+ });
+});
+</script>
+
 </html>

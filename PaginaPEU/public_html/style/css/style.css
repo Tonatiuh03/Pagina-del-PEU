@@ -1108,6 +1108,12 @@ h3.title a:hover {
 	list-style: none;
 }
 /* form rows */
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
 .forms li.form-row {
 	margin-bottom: 20px;
 }
