@@ -124,7 +124,7 @@
     <div class="line"></div>
     
     <!-- <img src="style/images/construccion.gif" height="400" width="700">-->
-    <form action="ejemplo.php" method="get">
+    <form action="Proyectos\controlador.js" method="post">
         <p>Nombre del responsable del proyecto:
             <br>
         <input type="text" name="nombreRes" min="100" size="50"></p>
@@ -229,13 +229,35 @@
             <br>
             <input type="text" name="desarrollo" min="50" size="50"></p>
         
-        <p>¿Qué área espacial desarrollan?: 
-            <br>
-            <input type="text" name="area" min="50" size="50"></p>
+        
+        
+        <p>¿Qué área espacial desarrollan?:<br>
+            <input type="radio" name="area" value="navegacion"> Navegación<br>
+            <input type="radio" name="area" value="telecom"> Telecomunicaciones<br>
+            <input type="radio" name="area" value="cienBasica"> Ciencia basica<br>
+            <input type="radio" name="area" value="elctronica"> Electronica y control<br>
+            <input type="radio" name="area" value="percepcion"> Percepción remota<br>
+            <input type="radio" name="area" value="software"> Software<br>
+            <input type="radio" name="area" value="plataformas"> Plataformas satelitales<br>
+            <input type="radio" name="area" value="sisControl"> Sistemas de control y navegación<br>
+            <input type="radio" name="area" value="compuAbordo"> Computadora de abordo<br>
+            <input type="radio" name="area" value="comuniSat"> Comunicaciones satelitales<br>
+            <input type="radio" name="area" value="propulsion"> Propulsión espacial<br>
+            <input type="radio" name="area" value="coheteria"> Propulsión(cohetería)<br>
+            <input type="radio" name="area" value="simulSistemas"> Simulación de sistemas<br>
+            <input type="radio" name="area" value="sistPlanetarios"> Simulación de sistemas planetarios<br>
+            <input type="radio" name="area" value="robotoca"> Robótica espacial<br>
+            <input type="radio" name="area" value="exobiologia"> Exobiologia<br>
+            <input type="radio" name="area" value="economia"> Economía aplicada al espacio<br>
+            <input type="radio" name="area" value="derecho"> Derecho aplicado al espacio<br>
+            <input type="radio" name="area" value="aplicacionesMed"> Aplicaciones de medicina espacial<br>
+            <input type="radio" name="area" value="medicina"> Medicina espacial<br>
+            <input type="radio" name="area" value="otra"> Otra<br>
+        </p>
         
         <p>En caso de haber seleccionado otra, especifique cuál: 
             <br>
-            <input type="text" name="otraArea" min="50" size="50"></p>
+            <input type="text" name="area" min="50" size="50"></p>
         
         <p>Adscripción institucional del responsable: 
             <br>
@@ -249,8 +271,7 @@
     
     <br>
     <br>
-    
-
+ 
 <div class="clear"></div>
 
 <script src="style/js/scripts.js"></script>
