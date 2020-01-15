@@ -124,7 +124,7 @@
     <div class="line"></div>
     
     <!-- <img src="style/images/construccion.gif" height="400" width="700">-->
-    <form action="Proyectos\controlador.js" method="post">
+    <form id="formulario" action="javascript:void(0);">
         <p>Nombre del responsable del proyecto:
             <br>
         <input type="text" name="nombreRes" min="100" size="50"></p>
@@ -263,7 +263,7 @@
             <br>
             <input type="text" name="adscripcion" min="50" size="50"></p>
         <p>
-            <input type="submit" value="Enviar">
+            <input type="submit" id="boton_guardar" value="Enviar">
             <input type="reset" value="Borrar">
         </p>
     </form>
@@ -278,5 +278,46 @@
 <!--[if !IE]> -->
 <script src="style/js/jquery.corner.js"></script>
 <!-- <![endif]-->
-
+<!--script para la conexion de la base de datos con el formulario -->
+<script type="text/javascript">
+    var db = null;
+function iniciarDB(){
+    abrirDB();
+}
+function abrirDB(){
+    try{
+        db = openDatabase('proyectos', '1.0', 'ProyectosPEU', 2000000);
+    }catch(e){
+        document.write('La aplicacion no soporta html5 database.');
+    }
+}
+//Funcion para guardar cada proyecto
+function guardarProyecto(nombreRes, correo, entidades, tel, nombreProy, resumen, tipo, etapa, esperado, web, logros, uniColaboran, financiadoras, monto, fechaInicio, fechaTermino, sigEtapa, nuevo, colaboradores, licenciatura, maestria, doctorado,  aeroespacial, empresas, normativa, 
+ desarrollo, area, adscripcion ){
+    db.transaction(function(tx){
+        tx.executeSql('INSERT INTO responsable(nombre) VALUES(?)',[nombreRes],function(tx,respuesta)
+        tx.executeSql('INSERT INTO responsable(correo) VALUES(?)',[correo],function(tx,respuesta)
+        tx.executeSql('INSERT INTO responsable(tel) VALUES(?)',[tel],function(tx,respuesta)
+        tx.executeSql('INSERT INTO responsable(adscripcion) VALUES(?)',[adscripcion],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(nombre) VALUES(?)',[nombreProy],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(fecha_inicio) VALUES(?)',[fechaInicio],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(resumen) VALUES(?)',[resumen],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(tipo) VALUES(?)',[tipo],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(etapa) VALUES(?)',[etapa],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(producto_esperado) VALUES(?)',[esperado],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(web) VALUES(?)',[web],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(logros) VALUES(?)',[logros],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(monto) VALUES(?)',[monto],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(fecha_termino) VALUES(?)',[fechaTermino],function(tx,respuesta)
+        tx.executeSql('INSERT INTO proyecto(area) VALUES(?)',[area],function(tx,respuesta)
+        tx.executeSql('INSERT INTO colaboradores(asociados) VALUES(?)',[colaboradores],function(tx,respuesta)
+        tx.executeSql('INSERT INTO colaboradores(licenciatura) VALUES(?)',[licenciatura],function(tx,respuesta)
+        tx.executeSql('INSERT INTO colaboradores(maestria) VALUES(?)',[maestria],function(tx,respuesta)
+        tx.executeSql('INSERT INTO colaboradores(doctorado) VALUES(?)',[doctorado],function(tx,respuesta)
+        tx.executeSql('INSERT INTO entidades_academicas(participantes) VALUES(?)',[entidades],function(tx,respuesta)
+                
+            )
+    })
+}
+</script>
 </html>
