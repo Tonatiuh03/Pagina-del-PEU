@@ -35,6 +35,108 @@
  <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
  <script src="style\js\bootstrap.min.js"></script>
+ 
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <!--script para la conexion de la base de datos con el formulario -->
+<script type="text/javascript">
+    
+    var db = null;
+       function iniciarDB(){
+          try{
+             db = openDatabase('proyectos', '1.0', 'Database Prueba', 200000);
+          }catch(e){
+             document.write('La aplicacion no soporta html5 database.');
+          }
+       }
+    function guardarProyecto(nombreRes, correo, entidades, tel, nombreProy, resumen, tipo, etapa, esperado, web, logros, uniColaboran, financiadoras, monto, fechaInicio, fechaTermino, sigEtapa, nuevo, colaboradores, licenciatura, maestria, doctorado,  aeroespacial, empresas, normativa, 
+ desarrollo, area, adscripcion, funcion_de_respuesta){
+    db.transaction(function(tx){
+        tx.executeSql('INSERT INTO responsable(id, id_proyecto, nombre, correo, tel, adscripcion ) VALUES(?,?,?,?,?,?)',[0,0,nombreRes, correo, tel, adscripcion];
+        tx.executeSql('INSERT INTO proyecto(id,nombre,fecha_inicio,resumen,tipo,etapa,producto_esperado,web,logros,monto,fecha_termino,area) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',[0,nombreProy,fechaInicio,resumen,tipo,etapa,esperado,web,logros,monto,fechaTermino,area];
+        tx.executeSql('INSERT INTO colaboradores(id, id_proyecto,asociados,licenciatura,maestria,doctorado) VALUES(?,?,?,?,?,?)',[0,0,colaboradores,licenciatura,maestria,doctorado];
+        tx.executeSql('INSERT INTO entidades_academicas(id,participantes,colaboran,id_proyecto,financiadoras) VALUES(?,?,?,?,?)',[0,entidades,uniColaboran,0,financiadoras];
+        tx.executeSql('INSERT INTO preguntas(id,id_proyecto,sigEtapa,nuevoProyecto,desarrolloTecno,empresas,normativa,otroProyecto) VALUES(?,?,?,?,?,?,?,?)',[0,0,sigEtapa,nuevo,aeroespacial,empresas,normativa,desarrollo];
+               })))));
+           }
+       
+    window.onload = function(){
+    iniciarDB();
+    //refrescarListaProyectos();
+       
+    document.getElementById('boton_guardar').onclick = function(){
+        
+    
+    if(document.getElementById('formulario').checkValidity()){
+        var nombreRes = document.getElementById('nombreRes');
+        var correo = document.getElementById('correo');
+        var entidades = document.getElementById('entidades');
+        var tel = document.getElementById('entidades');
+        var nombreProy = document.getElementById('nombreProy');
+        var resumen = document.getElementById('resumen');
+        var tipo = document.getElementById('tipo');
+        var etapa = document.getElementById('etapa');
+        var esperado = document.getElementById('esperado');
+        var web = document.getElementById('web');
+        var logros = document.getElementById('logros');
+        var uniColaboran = document.getElementById('uniColaboran');
+        var financiadoras = document.getElementById('financiadoras');
+        var monto = document.getElementById('monto');
+        var fechaInicio = document.getElementById('fechaInicio');
+        var fechaTermino = document.getElementById('fechaTermino');
+        var sigEtapa = document.getElementById('sigEtapa');
+        var nuevo = document.getElementById('nuevo');
+        var colaboradores = document.getElementById('colaboradores');
+        var licenciatura = document.getElementById('licenciatura');
+        var maestria = document.getElementById('maestria');
+        var doctorado = document.getElementById('doctorado');
+        var aeroespacial = document.getElementById('aeroespacial');
+        var empresas = document.getElementById('empresas');
+        var normativa = document.getElementById('normativa');
+        var desarrollo = document.getElementById('desarrollo');
+        var area = document.getElementById('area');
+        var adscripcion = document.getElementById('adscripcion');
+        
+        guardarProyecto(nombreRes.value, correo.value, entidades.value, tel.value, nombreProy.value, resumen.value, tipo.value, etapa.value, esperado.value, web.value, logros.value, uniColaboran.value, financiadoras.value, monto.value, fechaInicio.value, fechaTermino.value, sigEtapa.value, nuevo.value, colaboradores.value, licenciatura.value, maestria.value, doctorado.value,  aeroespacial.value, empresas.value, normativa.value, 
+ desarrollo.value, area.value, adscripcion.value, function(respuesta){
+            if(respuesta){
+                nombreRes.value = '';
+                correo.value = '';
+                entidades.value = '';
+                tel.value = '';
+                nombreProy.value = '';
+                resumen.value = '';
+                tipo.value = '';
+                etapa.value = '';
+                esperado.value = '';
+                web.value = '';
+                logros.value = '';
+                uniColaboran.value = '';
+                financiadoras.value = '';
+                monto.value = '';
+                fechaInicio.value = '';
+                fechaTermino.value = '';
+                sigEtapa.value = '';
+                nuevo.value = '';
+                colaboradores.value = '';
+                licenciatura.value = '';
+                maestria.value = '';
+                doctorado.value = '';
+                aeroespacial.value = '';
+                empresas.value = '';
+                normativa.value = '';
+                desarrollo.value = '';
+                area.value = '';
+                adscripcion.value = '';
+               
+                alert('El registro ha sido guardado con exito');
+                }else{
+                   alert('El registro no ha podido ser guardado');
+                }
+            });
+        }
+    };              
+</script>
+
 </head>
 <body>
 <div id="wrapper">
@@ -123,8 +225,9 @@
     <h1 class="title">Agregar Proyecto</h1>
     <div class="line"></div>
     
+
     <!-- <img src="style/images/construccion.gif" height="400" width="700">-->
-    <form id="formulario" method="post" action="consulta.js">
+    <form id="formulario" action="javascript:void(0);">
         <p>Nombre del responsable del proyecto:
             <br>
         <input type="text" name="nombreRes" min="100" size="50"></p>
@@ -263,7 +366,7 @@
             <br>
             <input type="text" name="adscripcion" min="50" size="50"></p>
         <p>
-            <input type="submit" value="Enviar">
+            <input type="submit"  id="boton_guardar" value="Guardar">
             <input type="reset" value="Borrar">
         </p>
     </form>
@@ -273,7 +376,6 @@
     <br>
  
 
-<!--script para la conexion de la base de datos con el formulario -->
 
 <div class="clear"></div>
 

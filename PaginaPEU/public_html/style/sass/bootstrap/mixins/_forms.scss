@@ -81,8 +81,9 @@
     line-height: $input-height;
   }
 
-  textarea#{$parent},
+  textarea#{$parent}{
   select[multiple]#{$parent} {
     height: auto;
   }
+  
 }

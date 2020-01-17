@@ -1,6 +1,6 @@
 /* 
  * Controlador para agregar proyecto 
- */
+
 
        
 var form = document.getElementsByTagName('form')[0];
@@ -34,18 +34,18 @@ var area = document.getElementById('desarrollo');
 var adscripcion = document.getElementById('adscripcion');
 
 
-
+*/
    
 //Funcion para guardar cada proyecto
 function guardarProyecto(nombreRes, correo, entidades, tel, nombreProy, resumen, tipo, etapa, esperado, web, logros, uniColaboran, financiadoras, monto, fechaInicio, fechaTermino, sigEtapa, nuevo, colaboradores, licenciatura, maestria, doctorado,  aeroespacial, empresas, normativa, 
  desarrollo, area, adscripcion, funcion_de_respuesta){
     db.transaction(function(tx){
-        tx.executeSql('INSERT INTO responsable(nombre, correo, tel, adscripcion ) VALUES(?,?,?,?)',[nombreRes, correo,tel,adscripcion],function(tx,respuesta){
+        tx.executeSql('INSERT INTO responsable(id, id_proyecto, nombre, correo, tel, adscripcion ) VALUES(?,?,?,?,?,?)',[0,0,nombreRes, correo, tel, adscripcion],function(tx,respuesta){
                     funcion_de_respuesta(true);
-               }, function(tx, respuesta){
+               },function(tx, respuesta){
                     funcion_de_respuesta(false);
                });
-       
+      /* 
         tx.executeSql('INSERT INTO proyecto(nombre) VALUES(?)',[nombreProy],function(tx,respuesta){
                     funcion_de_respuesta(true);
                }, function(tx, respuesta){
@@ -135,7 +135,7 @@ function guardarProyecto(nombreRes, correo, entidades, tel, nombreProy, resumen,
                     funcion_de_respuesta(true);
                }, function(tx, respuesta){
                     funcion_de_respuesta(false);
-        });
+        });*/
     });    
 }
 function cargarProyectos(funcion_de_respuesta){
@@ -188,7 +188,7 @@ function refrescarListaProyectos(){
 
 window.onload = function(){
     iniciarDB();
-    refrescarListaInstrumentos();
+    //refrescarListaProyectos();
     document.getElementById('boton_guardar').onclick = function(){
     if(document.getElementById('formulario').checkValidity()){
         var nombreRes = document.getElementById('nombreRes');
