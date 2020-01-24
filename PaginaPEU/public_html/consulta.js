@@ -16,11 +16,5 @@ function validaForm(){
         return false;
     }
 
-    // Checkbox
-    if(!$("#mayor").is(":checked")){
-        alert("Debe confirmar que es mayor de 18 años.");
-        return false;
-    }
-
     return true; // Si todo está correcto
 }
