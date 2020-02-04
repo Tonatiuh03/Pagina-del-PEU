@@ -36,7 +36,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
  <script src="style\js\bootstrap.min.js"></script>
  
- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  <!--script para la conexion de la base de datos con el formulario -->
 
 
@@ -130,10 +130,10 @@
     
 
     <!-- <img src="style/images/construccion.gif" height="400" width="700">-->
-    <form id="formulario" action="Proyectos/controlador.js" method="post">
+    <form id="formulario" action="controller/nuevoController.js" method="post">
         <p>Nombre del responsable del proyecto:
             <br>
-        <input type="text" name="nombreRes" size="50"></p>
+        <input type="text" name="nombreRes" style="width: 400px; height:15px"></p>
         
         <p>Dirección de correo electrónico: 
             <br>
@@ -153,31 +153,31 @@
         
         <p>Resumen del proyecto: 
             <br>
-            <input type="text" name="resumen"  size="50"></p>
+            <input type="text" name="resumen"  style="width: 400px; height:200px"></p>
         
         <p>Tipo de proyecto: 
             <br>
-            <input type="text" name="tipo" size="50"></p>
+            <input type="text" name="tipo" size="60"></p>
         
         <p>Etapa actual del proyecto: 
             <br>
-            <input type="text" name="etapa"  size="30"></p>
+            <input type="text" name="etapa"  style="width: 400px; height:200px"></p>
         
         <p>Productos esperados (entregables) y/o logros alcanzados: 
             <br>
-            <input type="text" name="esperado"  size="50"></p>
+            <input type="text" name="esperado"  style="width: 400px; height:100px"></p>
         
         <p>Página Web del proyecto: 
             <br>
             <input type="text" name="web" size="50"></p>
         
-        <p>Logros esperados o alcanzados: 
+        <!--<p>Logros esperados o alcanzados: 
             <br>
-            <input type="text" name="logros"  size="50"></p>
+            <input type="text" name="logros"  size="50"></p>-->
         
         <p>Universidades, institutos o dependencias, que colaboran (si es vigente) o colaboraron (si terminó): 
             <br>
-            <input type="text" name="uniColaboran"  size="50"></p>
+            <input type="text" name="uniColaboran"  style="width: 400px; height:100px"></p>
         
         <p>Instituciones financiadoras: 
             <br>
@@ -269,7 +269,7 @@
             <br>
             <input type="text" name="adscripcion"  size="50"></p>
         <p>
-            <input type="submit" value="Guardar">
+            <input type="submit" onclick="procesar_autorizacion();" value="Guardar">
             <input type="reset" value="Borrar">
         </p>
     </form>
