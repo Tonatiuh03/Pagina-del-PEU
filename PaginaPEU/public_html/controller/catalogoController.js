@@ -14,7 +14,6 @@ var findProjects = filter => {
     http.setRequestHeader("Content-Type", "application/json");
     http.onreadystatechange = () => {
         if (http.readyState === 4) {
-            console.log(http.status)
             if (http.status === 200) {
                 var json = JSON.parse(http.responseText);
                 proyectos = json;
@@ -25,7 +24,6 @@ var findProjects = filter => {
             }
         }
     };
-    console.log(JSON.stringify(filter))
     http.send(JSON.stringify(filter));
 }
 
@@ -41,8 +39,6 @@ var loadProjectTableEmpty = () => {
 
 
 var loadProjectTable = () => {
-    console.log("Vamos a actualizar la tabla")
-    console.log(proyectos)
     $("#body-project-table").children(".proyect-row").remove();
     let rows = "";
     proyectos.forEach((p, i) => {
