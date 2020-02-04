@@ -39,6 +39,7 @@
   <script src="style/js/jquery.flexslider-min.js"></script>
   <script src="style/js/jquery.masonry.min.js"></script>
   <script src="style/js/jquery.slickforms.js"></script>
+
 </head>
 
 <body>
@@ -153,7 +154,7 @@
       <form>
         <div class="form-row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Nombre del proyecto">
+            <input type="text" class="form-control" placeholder="Nombre del proyecto" id="input-nombre-proyecto">
           </div>
 
           <div class="col">
@@ -168,36 +169,35 @@
         <div style="padding: 0%;" class="collapse" id="busquedaAvanzada">
           <div class="form-row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Nombre">
+              <input type="text" class="form-control" placeholder="Nombre" id="input-nombre-responsable">
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Adscripción">
+              <input type="text" class="form-control" placeholder="Adscripción" id="input-adscripcion-responsable">
             </div>
           </div>
-          <small id="emailHelp" class="form-text text-muted">Responsable del proyecto</small>
+          <small class="form-text text-muted">Responsable del proyecto</small>
 
           <div class="form-row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Área">
+              <input type="text" class="form-control" placeholder="Área" id="input-area-proyecto">
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Monto">
+              <input type="text" class="form-control" placeholder="Monto" id="input-monto-proyecto">
             </div>
           </div>
-          <small id="emailHelp" class="form-text text-muted">Detalles del proyecto</small>
+          <small class="form-text text-muted">Detalles del proyecto</small>
 
           <div class="form-row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Asociados">
+              <input type="text" class="form-control" placeholder="Asociados" id="input-asociados">
             </div>
           </div>
-          <small id="emailHelp" class="form-text text-muted">Colaboradores</small>
+          <small class="form-text text-muted">Colaboradores</small>
 
         </div>
-        <br />
         <div class="form-row">
           <div class="col">
-            <button class="btn" type="button" onclick="buscarProyecto();">
+            <button class="btn btn-success" type="button" onclick="buscarProyecto();">
               Buscar
             </button>
           </div>
@@ -206,48 +206,448 @@
 
 
       <br>
-      <br>
-      <h2>Proyectos</h2>
-      <span>Se muestra el catalogo actualizado de proyectos.</span>
-
       <table class="table table-hover" id="project-table">
         <thead>
           <tr>
             <th scope="col" data-field="nombre">
-              <h4>Nombre de proyecto</h4>
+              <h4>Proyectos</h4>
             </th>
           </tr>
         </thead>
+        <!--El cuerpo de la tabla se llena mediante el script-->
         <tbody id="body-project-table">
-          
+
         </tbody>
-
       </table>
-
-
-
     </div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="DetalleProyecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+  <!-- Modal Detalle de proyecto -->
+  <div class="modal fade bd-example-modal-lg" id="DetalleProyecto" tabindex="-1" style="width: 2900;" role="dialog"
+    aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" style="width: 1900;" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Detalle de Proyecto</h5>
+          <strong>
+            <h5 class="modal-title" id="ModalLabel">Detalle de Proyecto</h5>
+          </strong>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <input type="text" placeholder="Detalle">
-          </form>
+          <div class="container">
+            <div class="accordion" id="accordionDetalle">
+
+              <div class="card">
+                <div class="card-header" id="headingDetalles">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseDetalles"
+                      aria-expanded="false" aria-controls="collapseDetalles">
+                      Detalles de proyecto
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseDetalles" class="collapse show" aria-labelledby="headingDetalles"
+                  data-parent="#accordionDetalle">
+                  <div class="card-body">
+                    <div class="row">
+                      <small>
+                        <strong>Tipo</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="proyecto-tipo">
+                        Apoyo investigación Científica y Docencia
+                      </p>
+                    </div>
+                    <div class="row">
+                      <small>
+                        <strong>Página Web</strong>
+                      </small></div>
+                    <div class="row">
+                      <p class="text-justify" id="proyecto-web-page">
+                        <a href="http://calipso.icmyl.unam.mx">http://calipso.icmyl.unam.mx</a>
+                      </p>
+                    </div>
+                    <div class="row">
+                      <small><strong>Monto</strong></small>
+                    </div>
+                    <div class="row">
+                      <p class="text-jistify" id="proyecto-monto">
+                        200 de algo, la neta no sé
+                      </p>
+                    </div>
+                    <div class="row">
+                      <small><strong>Área</strong></small>
+                    </div>
+                    <div class="row">
+                      <p class="text-jistify" id="proyecto-area">
+                        Percepción remota
+                      </p>
+                    </div>
+                    <div class="row" id="fechas-proyecto">
+                      <div class="col">
+                        <div class="row">
+                          <small><strong>Fecha Inicio</strong></small>
+                        </div>
+                        <div class="row">
+                          <p class="text-jistify" id="proyecto-f-inicio">
+                            1996-01-06
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <small><strong>Fecha Finalización</strong></small>
+                        </div>
+                        <div class="row">
+                          <p class="text-jistify" id="proyecto-f-fin">
+                            2018-12-30
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <small>
+                        <strong>Resumen del Proyecto</strong>
+                      </small></div>
+                    <div class="row">
+                      <p class="text-justify" id="proyecto-descripcion">
+                        Analizar la nueva agenda de seguridad internacional y las amenazas, riesgos y vulnerabilidades
+                        que enfrenta la seguridad espacial en particular
+                      </p>
+                    </div>
+                    <div class="row">
+                      <small>
+                        <strong> Producto Esperado</strong>
+                      </small></div>
+                    <div class="row">
+                      <p class="text-justify" id="proyecto-prod-esperado">
+                        Los productos de BITSMEX pretenden servir al usuario, ahorrándole y facilitándole la búsqueda,
+                        elección y procesamiento de datos de la TSM, haciendo llegar a su mesa de trabajo aquellos
+                        aspectos de la distribución y evolución de la TSM que tienen una posible correlación con otras
+                        variables ambientales consideradas en su estudio específico. Además con la docencia de
+                        fortalecer el desarrollo de cuadros especializados en el sector espacial para robustecer los
+                        mecanismos de investigación, en un contexto nacional y regional para su aplicación.
+                      </p>
+                    </div>
+                    <div class="row">
+                      <small>
+                        <strong>Etapa</strong>
+                      </small></div>
+                    <div class="row">
+                      <p class="text-justify" id="proyecto-etapa">
+                        En virtud de que el BITSMEX es acumulativo (mientras se siga recibiendo y procesando la señal
+                        radiométrica de los satélites NOAA), la extensión temporal máxima de las series de tiempo de
+                        la TSM que se pueden construir es de enero de 1996 hasta el mes anterior al de la fecha actual.
+                      </p>
+                    </div>
+                    <div class="row">
+                      <small><strong>Logros</strong></small>
+                    </div>
+                    <div class="row">
+                      <p class="text-jistify" id="proyecto-logros">
+                        Aquí deberían ir los logros de esta wea
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <div class="card-header" id="head-resposable">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseResponsable" aria-expanded="false" aria-controls="collapseResponsable">
+                      Responsable
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseResponsable" class="collapse" aria-labelledby="head-resposable"
+                  data-parent="#accordionDetalle">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <div class="row">
+                          <small>
+                            <strong>Nombre</strong>
+                          </small>
+                        </div>
+                        <div class="row">
+                          <p class="text-justify" id="responsable-nombre">
+                            Ranulfo Rodríguez Sobreyra
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <small>
+                            <strong>Adscripción</strong>
+                          </small>
+                        </div>
+                        <div class="row">
+                          <p class="text-justify" id="responsable-adscripcion">
+                            Instituto de Ciencias del Mar y Limnología
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" id="responsable-contacto">
+                      <div class="col">
+                        <div class="row">
+                          <small>
+                            <strong>Teléfono</strong>
+                          </small></div>
+                        <div class="row">
+                          <p class="text-justify" id="responsable-telefono">
+                            56225793
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <small><strong>Correo</strong></small>
+                        </div>
+                        <div class="row">
+                          <p class="text-jistify" id="responsable-email">
+                            N/A
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Colaboradores
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDetalle">
+                  <div class="card-body">
+                    <div class="row">
+                      <small>
+                        <strong>Asociados</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="colaboradores-asociados">
+                        Instituto de Geografía, Instituto Nacional de la Pesca (colaboró).
+                      </p>
+                    </div>
+                    <div class="row" id="colaboradores-estudiantes">
+                      <div class="col">
+                        <div class="row">
+                          <small>
+                            <strong>Licenciatura</strong>
+                          </small></div>
+                        <div class="row">
+                          <p class="text-justify" id="colaboradores-licenciatura">
+                            Personal de Licenciatura : 2
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <small><strong>Maestría</strong></small>
+                        </div>
+                        <div class="row">
+                          <p class="text-jistify" id="colaboradores-maestria">
+                            Personal de Maestría : 0
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <small><strong>Doctorado</strong></small>
+                        </div>
+                        <div class="row">
+                          <p class="text-jistify" id="colaboradores-doctorado">
+                            Personal de Doctorado : 0
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <div class="card-header" id="headEntidades">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseEntidades" aria-expanded="false" aria-controls="collapseEntidades">
+                      Entidades Académicas e Instituciones
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseEntidades" class="collapse" aria-labelledby="headEntidades"
+                  data-parent="#accordionDetalle">
+                  <div class="card-body">
+                    <div class="row">
+                      <small>
+                        <strong>Particpantes</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="entidad-participante">
+                        Instituto de Geografía, Instituto Nacional de la Pesca
+                      </p>
+                    </div>
+                    <div class="row">
+                      <small>
+                        <strong>Universidades, institutos o dependencias, que colaboran/colaboraron</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="entidad-colaboran">
+                        Instituto de Geografía, Instituto Nacional de la Pesca
+                      </p>
+                    </div>
+                    <div class="row">
+                      <small>
+                        <strong>Instituciones financiadoras</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="entidad-financiadora">
+                        Instituto de Ciencias del Mar y Limnología. PAPIIT. INECC,
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" id="headPreguntas">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsePreguntas" aria-expanded="false" aria-controls="collapsePreguntas">
+                      Información Adicional
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapsePreguntas" class="collapse" aria-labelledby="headPreguntas"
+                  data-parent="#accordionDetalle">
+                  <div class="card-body">
+                    <div class="row">
+                      <small>
+                        <strong>¿Cuál es la siguiente etapa a seguir en el proyecto? </strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="p-siguiente-etapa">
+                        Para fortalecer la enseñanza del manejo y procesamiento de imágenes satelitales se plantea
+                        estructurar dos cursos presenciales, cada uno con un manual de prácticas, Los cursos serán
+                        ofrecidos a los estudiantes del posgrado en Ciencias del Mar y Limnología y Ciencias de la
+                        Tierra, y a los estudiantes interesados en el tema. Es importante destacar que los datos de
+                        observación de la Tierra por medio de instrumentos a bordo de satélites contribuyen
+                        significativamente en los estudios en diversas disciplinas científicas, comerciales e
+                        industriales. La meta es contribuir al desarrollo de cuadros especializados en el sector
+                        espacial para robustecer los mecanismos de investigación, en un contexto nacional y regional
+                        para su aplicación.
+                      </p>
+                    </div>
+
+                    <div class="row">
+                      <small>
+                        <strong>¿Se desprende de la iniciativa actual un nuevo proyecto?, ¿es un proyecto de CTE?,
+                          ¿cuáles serán sus objetivos?</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="p-nuevo-proyecto">
+                        Si. Fortalecer la enseñanza de las tecnologías espaciales en la observación de la tierra, en
+                        particular el territorio nacional, apoyando la formación de especialistas en el campo de las
+                        ciencias y tecnologías
+                      </p>
+                    </div>
+
+                    <div class="row">
+                      <small>
+                        <strong>¿Dicho proyecto está vinculado con desarrollo de tecnología aeroespacial? En caso
+                          afirmativo explique brevemente cómo.</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="p-tecnologia">
+                        La experiencia que logre obtener con esta propuesta, permitirá establecer una base de cursos
+                        teóricos-prácticos que fomenten la enseñanza de las tecnología espaciales desde principios
+                        básicos hasta el análisis de datos de mayor complejidad. De esta manera se contribuye al
+                        desarrollo de cuadros especializados en el área para fortalecer los mecanismo de investigación,
+                        en un contexto nacional y regional para su aplicación.
+                      </p>
+                    </div>
+
+                    <div class="row">
+                      <small>
+                        <strong>¿Trabaja con empresas espaciales? ¿Cuáles? ¿Alguna de estas empresas son de reciente
+                          creación y cuáles?</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="p-empresas">
+                        No.
+                      </p>
+                    </div>
+
+                    <div class="row">
+                      <small>
+                        <strong>¿Cuál es la normativa espacial que utiliza en su proyecto?</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="p-normativa">
+                        No se aplica. Solo se aplica las normas de INEGI de un Modelo conceptual de Infraestructura de
+                        Datos Espaciales de México (IDEMex), para coordinar, organizar y normar la información espacial
+                        producida en el país para distribuir e intercambiar datos con base a políticas, normas y
+                        tecnologías.
+                      </p>
+                    </div>
+
+                    <div class="row">
+                      <small>
+                        <strong>Anteriormente a este proyecto, ¿han desarrollado algún otro proyecto de tecnología
+                          espacial? En caso afirmativo, ¿cuál fue el nombre del proyecto? ¿Qué tecnología se
+                          desarrolló?</strong>
+                      </small>
+                    </div>
+                    <div class="row">
+                      <p class="text-justify" id="p-otro-proyecto">
+                        No.
+                      </p>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+
+
+
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- END Modal Detalle de proyecto -->
 
   <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
 </body>
